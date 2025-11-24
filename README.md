@@ -15,59 +15,6 @@
       cursor: pointer;
     }
 
-    /* Kalp */
-    .heart {
-      position: relative;
-      width: 120px;
-      height: 120px;
-      background: red;
-      transform: rotate(45deg);
-      animation: beat 0.6s infinite;
-      z-index: 10; /* Kalbi öne al */
-    }
-
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      background: red;
-      border-radius: 50%;
-    }
-
-    .heart::before {
-      top: -60px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: -60px;
-      top: 0;
-    }
-
-    @keyframes beat {
-      0%, 100% { transform: rotate(45deg) scale(1); }
-      50% { transform: rotate(45deg) scale(1.25); }
-    }
-
-    /* Partiküller */
-    .particle {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: rgb(255, 70, 70);
-      border-radius: 50%;
-      pointer-events: none;
-      animation: explode 0.6s linear forwards;
-    }
-
-    @keyframes explode {
-      to {
-        transform: translate(var(--x), var(--y)) scale(0);
-        opacity: 0;
-      }
-    }
   </style>
 </head>
 <body>
