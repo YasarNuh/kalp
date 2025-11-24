@@ -1,19 +1,5 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <title>Kalpli Site</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: #0a0a0a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      cursor: pointer;
-    }
 
     /* Kalp */
     .heart {
