@@ -17,22 +17,22 @@
 
     /* Kalp */
     .heart {
+      position: relative;
       width: 120px;
       height: 120px;
       background: red;
-      position: relative;
       transform: rotate(45deg);
       animation: beat 0.6s infinite;
-      z-index: 10; /* Kalbi öne alıyoruz */
+      z-index: 10; /* Kalbi öne al */
     }
 
     .heart::before,
     .heart::after {
       content: "";
+      position: absolute;
       width: 120px;
       height: 120px;
       background: red;
-      position: absolute;
       border-radius: 50%;
     }
 
@@ -95,7 +95,7 @@
       }
     }
 
-    // Kalp otomatik atışında efekt
+    // Kalp atışı efekti
     setInterval(() => {
       const rect = heart.getBoundingClientRect();
       const x = rect.left + rect.width / 2;
@@ -103,7 +103,7 @@
       spawnParticles(x, y, 8);
     }, 600);
 
-    // Tıklayınca büyük efekt
+    // Tıklayınca ekstra partikül efekti
     document.addEventListener("click", (e) => {
       spawnParticles(e.clientX, e.clientY, 25);
     });
