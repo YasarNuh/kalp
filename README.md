@@ -1,5 +1,35 @@
 <!DOCTYPE html>
 <html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalpli Site</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #0a0a0a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      cursor: pointer;
+      flex-direction: column;
+    }
+
+    /* Yazı üstte */
+    .title {
+      font-family: Arial, sans-serif;
+      color: #ff4f4f;
+      font-size: 40px;
+      text-shadow: 0 0 10px #ff4f4f, 0 0 20px #ff0000, 0 0 30px #ff0000;
+      margin-bottom: 30px;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff4f4f, 0 0 20px #ff0000, 0 0 30px #ff0000; }
+      to   { text-shadow: 0 0 20px #ff7f7f, 0 0 40px #ff0000, 0 0 60px #ff0000; }
+    }
 
     /* Kalp */
     .heart {
@@ -9,7 +39,7 @@
       background: red;
       transform: rotate(45deg);
       animation: beat 0.6s infinite;
-      z-index: 10; /* Kalbi öne al */
+      z-index: 10;
     }
 
     .heart::before,
@@ -58,6 +88,7 @@
 </head>
 <body>
 
+  <div class="title">Yamur</div>
   <div class="heart" id="heart"></div>
 
   <script>
@@ -81,7 +112,7 @@
       }
     }
 
-    // Kalp atışı efekti
+    // Kalp otomatik atışı
     setInterval(() => {
       const rect = heart.getBoundingClientRect();
       const x = rect.left + rect.width / 2;
@@ -97,3 +128,4 @@
 
 </body>
 </html>
+
