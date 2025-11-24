@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Kalpli Site</title>
   <style>
-    /* Genel ayarlar */
     body {
       margin: 0;
       height: 100vh;
@@ -24,7 +23,7 @@
       position: relative;
       transform: rotate(45deg);
       animation: beat 0.6s infinite;
-      box-shadow: 0 0 25px red;
+      z-index: 10; /* Kalbi öne alıyoruz */
     }
 
     .heart::before,
@@ -48,8 +47,8 @@
     }
 
     @keyframes beat {
-      0%, 100% { transform: rotate(45deg) scale(1); box-shadow: 0 0 20px red; }
-      50% { transform: rotate(45deg) scale(1.25); box-shadow: 0 0 50px red; }
+      0%, 100% { transform: rotate(45deg) scale(1); }
+      50% { transform: rotate(45deg) scale(1.25); }
     }
 
     /* Partiküller */
@@ -78,23 +77,21 @@
   <script>
     const heart = document.getElementById("heart");
 
-    // Partikül oluşturma
     function spawnParticles(x, y, count = 20) {
       for (let i = 0; i < count; i++) {
-        const particle = document.createElement("div");
-        particle.classList.add("particle");
+        const p = document.createElement("div");
+        p.classList.add("particle");
 
         const angle = Math.random() * 2 * Math.PI;
         const distance = 80 + Math.random() * 80;
 
-        particle.style.left = x + "px";
-        particle.style.top = y + "px";
-        particle.style.setProperty('--x', Math.cos(angle) * distance + "px");
-        particle.style.setProperty('--y', Math.sin(angle) * distance + "px");
+        p.style.left = x + "px";
+        p.style.top = y + "px";
+        p.style.setProperty('--x', Math.cos(angle) * distance + "px");
+        p.style.setProperty('--y', Math.sin(angle) * distance + "px");
 
-        document.body.appendChild(particle);
-
-        setTimeout(() => particle.remove(), 600);
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 600);
       }
     }
 
