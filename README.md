@@ -9,34 +9,28 @@
       height: 100vh;
       background: #0a0a0a;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       overflow: hidden;
       cursor: pointer;
-      flex-direction: column;
     }
 
-    /* Yazı üstte */
+    /* Üstte yazı */
     .title {
-      font-family: Arial, sans-serif;
       color: #ff4f4f;
       font-size: 40px;
-      text-shadow: 0 0 10px #ff4f4f, 0 0 20px #ff0000, 0 0 30px #ff0000;
-      margin-bottom: 30px;
-      animation: glow 1.5s infinite alternate;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #ff4f4f, 0 0 20px #ff0000, 0 0 30px #ff0000; }
-      to   { text-shadow: 0 0 20px #ff7f7f, 0 0 40px #ff0000, 0 0 60px #ff0000; }
+      font-family: Arial, sans-serif;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #ff4f4f, 0 0 20px #ff0000;
     }
 
     /* Kalp */
     .heart {
-      position: relative;
       width: 120px;
       height: 120px;
       background: red;
+      position: relative;
       transform: rotate(45deg);
       animation: beat 0.6s infinite;
       z-index: 10;
@@ -45,22 +39,15 @@
     .heart::before,
     .heart::after {
       content: "";
-      position: absolute;
       width: 120px;
       height: 120px;
       background: red;
+      position: absolute;
       border-radius: 50%;
     }
 
-    .heart::before {
-      top: -60px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: -60px;
-      top: 0;
-    }
+    .heart::before { top: -60px; left: 0; }
+    .heart::after { left: -60px; top: 0; }
 
     @keyframes beat {
       0%, 100% { transform: rotate(45deg) scale(1); }
@@ -79,10 +66,7 @@
     }
 
     @keyframes explode {
-      to {
-        transform: translate(var(--x), var(--y)) scale(0);
-        opacity: 0;
-      }
+      to { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
     }
   </style>
 </head>
@@ -112,7 +96,6 @@
       }
     }
 
-    // Kalp otomatik atışı
     setInterval(() => {
       const rect = heart.getBoundingClientRect();
       const x = rect.left + rect.width / 2;
@@ -120,7 +103,6 @@
       spawnParticles(x, y, 8);
     }, 600);
 
-    // Tıklayınca ekstra partikül efekti
     document.addEventListener("click", (e) => {
       spawnParticles(e.clientX, e.clientY, 25);
     });
@@ -128,4 +110,3 @@
 
 </body>
 </html>
-
