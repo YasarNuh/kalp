@@ -15,7 +15,6 @@
       cursor: pointer;
     }
 
-    /* Kalp */
     .heart {
       width: 120px;
       height: 120px;
