@@ -92,7 +92,7 @@
 
 <body>
 
-  <div class="text">YAMUR</div>
+  <div class="text">YAĞMUR</div>
   <div class="heart" id="heart"></div>
 
   <script>
